@@ -112,7 +112,7 @@ public class Lab2 {
             E currentE = list.get(i);
             for(int j = i+1; j < list.size(); j++) {
                 // if the current element matches, return false.
-                if(currentE == list.get(j)) 
+                if(currentE.equals(list.get(j))) 
                     return false;
             }
         }
