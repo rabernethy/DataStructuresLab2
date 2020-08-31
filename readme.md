@@ -1,4 +1,4 @@
-# CIS 2168 005 Lab2
+# CIS 2168 001 Lab2
 
 # TODO List
 ## - removeAllInstances()
