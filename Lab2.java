@@ -6,7 +6,6 @@ Program: Lab2 - List of Functions
 Desc: See methods
 */
 
-import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,12 +80,15 @@ public class Lab2 {
     // removeAllInstances()
         List<Integer> list6 = new ArrayList<>();
         list6.add(1);
-        list6.add(1);
-        list6.add(7);
+        list6.add(4);
         list6.add(5);
-        list6.add(3);
+        list6.add(6);
+        list6.add(5);
+        list6.add(5);
+        list6.add(2);
+    
         System.out.println("Before: " + list6);
-        removeAllInstances(list6, 1);
+        removeAllInstances(list6, 5);
         System.out.println("After: " + list6);
 
         List<String> list7 = new ArrayList<>();
