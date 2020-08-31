@@ -6,12 +6,36 @@ Program: Lab2 - List of Functions
 Desc: See methods
 */
 
+import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Lab2 {
     public static void main(String[] args) {
+
+    // unique()
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        System.out.println(unique(list1) + " <-- should be true.");
+        list1.add(1);
+        System.out.println(unique(list1) + " <-- should be false.");
         
+    // allMultiples()
+
+
+    // allStringsOfSize()
+
+
+    // isPermutaion()
+
+
+    // stringToListOfWords()
+
+
+    // removeAllInstances()
+
+
     }
 
     public static <E> boolean unique(List<E> list) {
