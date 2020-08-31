@@ -1,7 +1,7 @@
 /* 
-Data Structures - 2168 005
+Data Structures - 2168 001
 Author Russell Abernethy
-Date: _____
+Date: 8/30/2020
 Program: Lab2 - List of Functions
 Desc: See methods
 */
