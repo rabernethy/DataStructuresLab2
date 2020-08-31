@@ -134,11 +134,19 @@ public class Lab2 {
         /*
         Takes in a List and item.
         The method then proceeds to remove each item in the list that matches the given item.
-            For example, if the method is passed the List<Integer> [1, 4, 5, 6,5, 5, 2] and the Integer 5,
+            For example, if the method is passed the List<Integer> [1, 4, 5, 6, 5, 5, 2] and the Integer 5,
             the method removes all 5’s from the List. The List then becomes [1, 4, 6, 2].
         It should return nothing.
         */
-
+        // go through every element in the list and compare it to the item being looked for.
+        for(int i = 0; i < list.size(); i++) {
+            // if the item matches the element, remove it and decrement i by 1, otherwise a 
+            // comparison would be missed.
+            if(item == list.get(i)) {
+                list.remove(i);
+                i--;
+            }
+        }
 
     }
     
