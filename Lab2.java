@@ -241,10 +241,8 @@ public class Lab2 {
         for(int i = 0; i < list.size(); i++) {
             // if the item matches the element, remove it and decrement i by 1, otherwise a 
             // comparison would be missed.
-            if(item == list.get(i)) {
+            while(item.equals(list.get(i)))
                 list.remove(i);
-                i--;
-            }
         }
 
     }
