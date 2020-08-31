@@ -12,32 +12,95 @@ import java.util.List;
 
 public class Lab2 {
     public static void main(String[] args) {
-
+    // Test Cases:
     // unique()
-        List<Integer> list1 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
-        System.out.println(unique(list1) + " <-- should be true.");
-        list1.add(1);
-        System.out.println(unique(list1) + " <-- should be false.");
-        
+        // Integers:
+        List<Integer> list1a = new ArrayList<>();
+        list1a.add(1);
+        list1a.add(2);
+        System.out.println(unique(list1a) + " <-- should be true.");
+        list1a.add(1);
+        System.out.println(unique(list1a) + " <-- should be false.");
+        // Strings:
+        List<String> list1b = new ArrayList<>();
+        list1b.add("Hello");
+        list1b.add("World!");
+        System.out.println(unique(list1b) + " <-- should be true.");
+        list1b.add("Hello");
+        System.out.println(unique(list1b) + " <-- should be false.");
+        //Empty List:
+        List<Integer> list1c = new ArrayList<>();
+        System.out.println(unique(list1c) + " <-- should be true.");
+
+
     // allMultiples()
-
-
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(3);
+        list2.add(6);
+        list2.add(2);
+        list2.add(9);
+        list2.add(15);
+        list2.add(18);
+        System.out.println(allMultiples(list2, 3));
     // allStringsOfSize()
-
+        List<String> list3 = new ArrayList<>();
+        int len = 4;
+        list3.add("hello");
+        list3.add("how");
+        list3.add("are");
+        list3.add("doing");
+        list3.add("today");
+        list3.add("this");
+        list3.add("is");
+        list3.add("a");
+        list3.add("test");
+        System.out.println(allStringsOfSize(list3, len));
 
     // isPermutaion()
-
+        List<String> list4 = new ArrayList<>();
+        List<String> list5 = new ArrayList<>();
+        list4.add("hello");
+        list4.add("world");
+        list4.add("neat!");
+        list4.add("hello");
+        list5.add("hello");
+        list5.add("neat!");
+        list5.add("hello");
+        System.out.println(isPermutaion(list4, list5) + " <-- should be false");
+        list5.add("world");
+        System.out.println(isPermutaion(list5, list4) + " <-- should be true");
+        System.out.println(isPermutaion(list4, list5) + " <-- should be true");
 
     // stringToListOfWords()
+        String testString = "Hello, world! What is going on with Palistine anyway?";
+        System.out.println(stringToListOfWords(testString));
 
+        testString = "";
+        System.out.println(stringToListOfWords(testString));
 
     // removeAllInstances()
+        List<Integer> list6 = new ArrayList<>();
+        list6.add(1);
+        list6.add(1);
+        list6.add(7);
+        list6.add(5);
+        list6.add(3);
+        System.out.println("Before: " + list6);
+        removeAllInstances(list6, 1);
+        System.out.println("After: " + list6);
 
-
+        List<String> list7 = new ArrayList<>();
+        list7.add("Hello");
+        list7.add("World");
+        list7.add("How");
+        list7.add("Hello");
+        list7.add("are");
+        System.out.println("Before: " + list7);
+        removeAllInstances(list7, "Hello");
+        System.out.println("After: " + list7);
     }
 
+   
     public static <E> boolean unique(List<E> list) {
         /* 
         Returns true if all the items in the List are unique
@@ -137,20 +200,30 @@ public class Lab2 {
         */
         List<String> output = new ArrayList<>();
         String curString = string;
-        while(true) {
+        // only start the loop if curString is not empty.
+        while(curString.length() > 0) {
             // add the substring from the begining to the space.
             output.add(curString.substring(0, curString.indexOf(' ')));
             // change curString to curString - what was already added to the output.
-            curString = curString.substring(curString.indexOf(' '));
+            curString = curString.substring(curString.indexOf(' ' ) + 1);
             // if there are no more spaces, add everything left to the output list.
             if(!curString.contains(" ")) {
                 output.add(curString);
                 break;
             }
         }
-        // sanatize output
-            //todo
+        // remove extraneous characters from the end of strings
+        for(int i = 0; i < output.size(); i++) {
+            //check last character for punctuation and other special characters
+            //note: not all special characters are looked for.
+            if(output.get(i).endsWith(".") || output.get(i).endsWith("!") || output.get(i).endsWith("?")|| output.get(i).endsWith(":")|| output.get(i).endsWith(";")|| output.get(i).endsWith(",")|| output.get(i).endsWith("@")|| output.get(i).endsWith("#")|| output.get(i).endsWith("$")|| output.get(i).endsWith("%")|| output.get(i).endsWith("^")|| output.get(i).endsWith("&")|| output.get(i).endsWith("*")) {
+                // replace the current element, with the same element without punctuation
+                // or special characters at the end.
+                output.set(i, output.get(i).substring(0, output.get(i).length() - 1));
+            }
+        }
         return output;
+        
     }
 
 
